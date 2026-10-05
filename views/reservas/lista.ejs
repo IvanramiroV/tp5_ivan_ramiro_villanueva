@@ -1,0 +1,18 @@
+<section>
+    <h3>Listado General de Turnos</h3>
+    <% if (reservas && reservas.length > 0) { %>
+        <ul>
+            <% reservas.forEach(item => { %>
+                <li>
+                    <strong>Estudiante:</strong> <%= item.estudiante %> | <strong>Sala:</strong> <%= item.sala %> (<%= item.fecha %> - <%= item.turno %>)
+                    <br><a href="/reservas/<%= item.id %>">Ver detalles completos</a>
+                </li>
+                <hr style="border:0; border-top:1px solid #f1f5f9; margin: 12px 0;">
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No existen reservas registradas actualmente en el sistema.</p>
+    <% } %>
+    <br>
+    <p><a href="/reservas/nueva">Registrar otro turno</a></p>
+</section>

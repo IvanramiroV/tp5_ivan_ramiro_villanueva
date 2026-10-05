@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= titulo %></title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Portal de Salas Academicas</h1>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/reservas">Listado</a>
+            <a href="/reservas/nueva">Nueva Reserva</a>
+        </nav>
+    </header>
+
+    <main>
+        <% if (locals.seccion) { %>
+            <h2 style="margin-top: 0; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;"><%= seccion %></h2>
+        <% } %>
+        <%- body %>
+    </main>
+
+    <footer>
+        <p>Sistema de Gestión de Turnos Universitarios</p>
+        <p>ID de Solicitud: <span class="id-badge"><%= locals.solicitudId || "N/D" %></span></p>
+    </footer>
+</body>
+</html>
+```[cite: 8]
+
+---
+
+### Archivo 6: `views/reservas/inicio.ejs`
+*(Ubícalo dentro de views/reservas: `tp-05-salas-middleware/views/reservas/inicio.ejs`)*
+```html
+<section>
+    <h3>Bienvenido al Sistema de Gestión</h3>
+    <p>Este espacio digital permite a la comunidad estudiantil consultar la disponibilidad de turnos y reservar salas de estudio de manera rápida y ordenada.</p>
+    <br>
+    <ul>
+        <li><a href="/reservas">Ver listado de reservas actuales</a></li>
+        <li><a href="/reservas/nueva">Crear una nueva solicitud de turno</a></li>
+    </ul>
+</section>
